@@ -44,13 +44,13 @@ void loop() {
   }
    turn(direction);
    switch(forward_backward){
-   case 'f':
+   case '1':
      digitalWrite(7, HIGH);
      digitalWrite(8, LOW);
      break;
     
   
-    case 'b':
+    case '2':
      digitalWrite(7, LOW);
      digitalWrite(8, HIGH);
      break;
