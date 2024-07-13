@@ -36,11 +36,6 @@ void turn(int d){
 }
 
 void loop() {
-  //if(BT.available()){
-  //  Serial.println(BT.readString());
-  //}
-  //  put your main code here, to run repeatedly:
-  
   if(BT.available()){
     String movement = BT.readString();
     forward_backward = movement[1];
@@ -48,7 +43,17 @@ void loop() {
     direction = movement.substring(movement.indexOf('d'), movement.length()).toInt();
   }
    turn(direction);
-   analogWrite(6, 100);
-   digitalWrite(7, HIGH);
-   digitalWrite(8, LOW);
+   switch(forward_backward){
+   case 'f':
+     digitalWrite(7, HIGH);
+     digitalWrite(8, LOW);
+     break;
+    
+  
+    case 'b':
+     digitalWrite(7, LOW);
+     digitalWrite(8, HIGH);
+     break;
+   }
+   analogWrite(6, speed);
 }
